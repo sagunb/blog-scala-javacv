@@ -1,17 +1,15 @@
 package com.chimpler.javacv
 
-import java.awt.image.{BufferedImage, DataBufferByte}
-import java.awt.{Color, Font, Image}
+import java.awt.image.BufferedImage
+import java.awt.{Color, Font}
 import java.io.File
-import java.nio.ByteBuffer
 import javax.imageio.ImageIO
-import javax.swing.WindowConstants
 
 import org.bytedeco.javacpp.opencv_core._
 import org.bytedeco.javacpp.opencv_objdetect.CascadeClassifier
 import org.bytedeco.javacpp.{opencv_imgcodecs, opencv_imgproc}
 import org.bytedeco.javacv.OpenCVFrameConverter.ToMat
-import org.bytedeco.javacv.{CanvasFrame, Java2DFrameConverter, OpenCVFrameConverter}
+import org.bytedeco.javacv.Java2DFrameConverter
 
 /**
  * Created by chimpler on 7/13/14.
@@ -39,7 +37,6 @@ object ImageFaceDetectorApp extends App {
   val faceRects = new RectVector()
   faceCascade.detectMultiScale(equalizedMat, faceRects)
 
-
   val image = toBufferedImage(mat)
   val graphics = image.getGraphics
   graphics.setColor(Color.RED)
@@ -56,6 +53,5 @@ object ImageFaceDetectorApp extends App {
     val java2DConverter = new Java2DFrameConverter()
     java2DConverter.convert(openCVConverter.convert(mat))
   }
-
 
 }
