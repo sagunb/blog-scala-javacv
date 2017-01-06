@@ -2,10 +2,6 @@ name := "javacv-webcam"
 
 organization := "com.chimpler"
 
-val javacvVersion = "0.9"
-
-val javacppVersion = "0.9"
-
 version := "1.0-SNAPSHOT"
 
 scalaVersion := "2.10.4"
@@ -48,13 +44,6 @@ val platform = {
 }
 
 libraryDependencies ++= Seq(
-  "org.bytedeco" % "javacv" % javacvVersion excludeAll(
-    ExclusionRule(organization = "org.bytedeco.javacpp-presets"),
-    ExclusionRule(organization = "org.bytedeco.javacpp")
-    ),
-  "org.bytedeco.javacpp-presets" % "opencv"  % ("2.4.9-" + javacppVersion) classifier "",
-  "org.bytedeco.javacpp-presets" % "opencv"  % ("2.4.9-" + javacppVersion) classifier platform,
-  "org.bytedeco"                 % "javacpp" % javacppVersion,
   "org.scala-lang"               % "scala-swing"     % scalaVersion.value,
   "net.imagej"                   % "ij"              % "1.47v",
   "junit"                        % "junit"           % "4.11" % "test",
