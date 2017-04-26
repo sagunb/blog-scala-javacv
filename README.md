@@ -1,3 +1,6 @@
+To run locally:
+`sbt "run-main com.chimpler.javacv.ImageFaceDetectorApp skyfall.jpg"`
+
 blog-scala-javacv
 =================
 
